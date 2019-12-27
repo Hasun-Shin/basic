@@ -7,4 +7,7 @@ import com.start_spring.basic.model.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
+	
+	public Product findByName(String name);
+	
 }

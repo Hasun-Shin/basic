@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<hr>
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+$.ajax({
+
+    url : '/getMap2',
+    type : 'get',
+    data : {},
+    success : function(res) {
+       console.log(res);
+        var items = res.items;
+        for(var i = 0; i < items.length; i++){
+        var snippet = items[i].snippet;
+       var title = snippet.title;
+       var description = snippet.description;
+       var thumbnails = snippet.thumbnails;
+       var default1 = thumbnails.default;
+       var width = default1.width;
+       var height = default1.height;
+       var html = '<h1>' + title + description + width + height + '</h1>';
+      
+       $('hr').after(html);
+        }
+    }
+ });
+</script>
+</body>
+
+</html>
